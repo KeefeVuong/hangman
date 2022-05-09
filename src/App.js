@@ -1,4 +1,5 @@
 import Header from "./components/Header"
+import Letters from "./components/Letters"
 
 function App() {
   return (
