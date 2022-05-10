@@ -80,7 +80,8 @@ const Letters = ({ underScores, setUnderScores }) => {
         {losePopup && <Popup
         content={<>
             <b>Unlucky!</b>
-            <p>You have lost! Please try again.</p>
+            <p>You have lost! The word was {word}.</p>
+            <p>Please try again!</p>
         </>}
         handleClose={toggleLosePopup}
         />}
