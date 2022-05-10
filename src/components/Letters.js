@@ -26,11 +26,8 @@ const Letters = ({ underScores, setUnderScores }) => {
 
     function clickLetters(letter) {
         if (gameStarted === true) {
-            if (wrongCounter === 1) {
-                toggleLosePopup();
-            }
             document.getElementById(letter).style.backgroundColor = "#808080"
-
+            
             var correctLetter = false;
             const index = letters.indexOf(letter)
             if (index > -1) {
@@ -40,7 +37,7 @@ const Letters = ({ underScores, setUnderScores }) => {
             console.log(word)
             console.log(letter.toLowerCase())
             console.log(underScores)
-
+            
             for (let i = 0; i < word.length; i++) {
                 if (word[i] === letter.toLowerCase()) {
                     underScores = setCharAt(underScores, i * 2, letter);
@@ -48,11 +45,14 @@ const Letters = ({ underScores, setUnderScores }) => {
                     correctLetter = true;
                 }
             }
-
+            
             if (correctLetter !== true) {
                 setWrongCounter(wrongCounter -= 1);
             }
-
+            
+            if (wrongCounter === 0) {
+                toggleLosePopup();
+            }
             if (underScores.indexOf("_") === -1) {
                 togglePopup()
             }
